@@ -1,26 +1,34 @@
 <div ui-view>
-	<table>
+	<table class="unseentable">
 		<thead>
 			<tr>
 				<!-- table-title headerdib="{{header}}" -->
 				<!-- <th ng-repeat="header in tableHeaders track by $index">{{header}}</th> -->
-				<th>{{tableHeaders[0]}}</th>
-				<th>{{tableHeaders[1]}}</th>
-				<th>{{tableHeaders[2]}}</th>
-				<th>{{tableHeaders[3]}}</th>
-				<th>{{tableHeaders[4]}}</th>
-				<th>{{tableHeaders[5]}}</th>
-				<th>{{tableHeaders[6]}}</th>
-				<th>{{tableHeaders[7]}}</th>
-				<th>{{tableHeaders[8]}}</th>
+				<th class="table-header">{{tableHeaders[0]}}</th>
+				<th class="table-header">{{tableHeaders[1]}}</th>
+				<th class="table-header">{{tableHeaders[2]}}</th>
+				<th class="table-header">{{tableHeaders[3]}}</th>
+				<th class="table-header">{{tableHeaders[4]}}</th>
+				<th class="table-header">{{tableHeaders[5]}}</th>
+				<th class="table-header">{{tableHeaders[6]}}</th>
+				<th class="table-header">{{tableHeaders[7]}}</th>
+				<th class="table-header">{{tableHeaders[8]}}</th>
 			</tr>
 		</thead>
-		<!-- <tbody>
-			<tr>
-				<td>This is unseen table.</td>
+		<tbody>
+			<tr ng-repeat="dib in tableContent">
+				<td class="table-tdcontent">{{dib.appe}}</td>
+				<td class="table-tdcontent">{{dib.com}}</td>
+				<td class="table-tdcontent">{{dib.price}}</td>
+				<td class="table-tdcontent">{{dib.open}}</td>
+				<td class="table-tdcontent">{{dib.high}}</td>
+				<td class="table-tdcontent">{{dib.low}}</td>
+				<td class="table-tdcontent">{{dib.percent}}</td>
+				<td class="table-tdcontent">{{dib.vol}}</td>
+				<td class="table-tdcontent">{{dib.change}}</td>
 			</tr>
 		</tbody>
-		<tfoot>
+		<!-- <tfoot>
 			<tr>
 				<td>
 					This is tfoot.

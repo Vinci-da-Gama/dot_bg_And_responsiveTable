@@ -4,7 +4,7 @@
 	cdM.directive('responsiveTableUnseen', [function(){
 		return {
 			scope: {}, // {} = isolate, true = child, false/undefined = no change
-			controller: function($scope, $element, $attrs, $transclude, tableHeaderRequire) {
+			controller: function($scope, $element, $attrs, $transclude, tableHeaderRequire, tableContentRequire) {
 				// tableHeaderRequire.graspTableHeaders
 				tableHeaderRequire.graspTableHeaders(retriveData);
 				function retriveData (dossier) {
@@ -12,7 +12,10 @@
 					console.log('$scope.tableHeaders : -- ', $scope.tableHeaders);
 				};
 
-								
+				tableContentRequire.grabTableContent(retriveContent);
+				function retriveContent (dossier) {
+					$scope.tableContent = dossier;
+				};
 
 			},
 			// require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements

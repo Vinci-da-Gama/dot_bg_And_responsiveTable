@@ -38,3 +38,19 @@ div.page1-listgroup-patch {
 		background-color: transparent;
 	}
 }
+
+table.unseentable {
+	th.table-header {
+		padding: 0 1em;
+	}
+	.table-tdcontent {
+		padding: 0 1em;
+		text-align: center;
+	}
+}
+
+/* Portrait */
+@media screen and (max-width: 800px) {
+    #unseen table.unseentable th:nth-child(2), 
+    #unseen table.unseentable td:nth-child(2) {display: none;}
+}

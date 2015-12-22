@@ -31,12 +31,32 @@
 				// console.log('what is the testimony? --> ', testimony.data);
 			})
 			.catch(function (data, config, status) {
-				console.log("sigSrevice error line -- 16 -\&\#1046\;- data : "+data+" config: "+config+" status: "+status+".---");
+				console.log("sigSrevice error line -- 34 -\&\#1046\;- data : "+data+" config: "+config+" status: "+status+".---");
 			})
 			.finally(function () {
-				console.log('This is finally anyway.');
+				console.log('This is finally headers anyway.');
 			});
 		};
+	}]);
+
+	sigM.service('tableContentRequire', ['$http', function($http){
+		// var contentsAisle = "./db/rtdb-table-content.json";
+		var contentsAisle = "https://api.myjson.com/bins/5a2p3";
+
+		this.grabTableContent = function (cbTableContent) {
+			$http.get(contentsAisle)
+			.then(function (testimony) {
+				cbTableContent(testimony.data);
+				console.log('what is the table content? ', testimony.data);
+			})
+			.catch(function (data, config, status) {
+				console.log("sigSrevice error line -- 52 -\&\#1046\;- data : "+data+" config: "+config+" status: "+status+".---");
+			})
+			.finally(function () {
+				console.log('This is finally content anyway.');
+			});
+		};
+
 	}]);
 
 })();

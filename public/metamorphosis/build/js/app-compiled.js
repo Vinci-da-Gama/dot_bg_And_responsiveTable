@@ -51,32 +51,12 @@
 
 })();
 (function () {
-	var cosM = angular.module('rtdb.constant');
-
-})();
-(function () {
-	var ctrlM = angular.module('rtdb.ctrl');
-
-	ctrlM.controller('p1Ctrl', ['$scope', function($scope){
-		console.log('This is p1Ctrl');
-	}]);
-
-	ctrlM.controller('p2Ctrl', ['$scope', function($scope){
-		console.log('This is p2Ctrl');
-	}]);
-
-	ctrlM.controller('p3Ctrl', ['$scope', function($scope){
-		console.log('This is p3Ctrl');
-	}]);
-
-})();
-(function () {
 	var cdM = angular.module('rtdb.cust.dir');
 
 	cdM.directive('responsiveTableUnseen', [function(){
 		return {
 			scope: {}, // {} = isolate, true = child, false/undefined = no change
-			controller: function($scope, $element, $attrs, $transclude, tableHeaderRequire) {
+			controller: function($scope, $element, $attrs, $transclude, tableHeaderRequire, tableContentRequire) {
 				// tableHeaderRequire.graspTableHeaders
 				tableHeaderRequire.graspTableHeaders(retriveData);
 				function retriveData (dossier) {
@@ -84,7 +64,10 @@
 					console.log('$scope.tableHeaders : -- ', $scope.tableHeaders);
 				};
 
-								
+				tableContentRequire.grabTableContent(retriveContent);
+				function retriveContent (dossier) {
+					$scope.tableContent = dossier;
+				};
 
 			},
 			// require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
@@ -134,6 +117,26 @@
 		};
 	}]);
 
+
+})();
+(function () {
+	var ctrlM = angular.module('rtdb.ctrl');
+
+	ctrlM.controller('p1Ctrl', ['$scope', function($scope){
+		console.log('This is p1Ctrl');
+	}]);
+
+	ctrlM.controller('p2Ctrl', ['$scope', function($scope){
+		console.log('This is p2Ctrl');
+	}]);
+
+	ctrlM.controller('p3Ctrl', ['$scope', function($scope){
+		console.log('This is p3Ctrl');
+	}]);
+
+})();
+(function () {
+	var cosM = angular.module('rtdb.constant');
 
 })();
 (function () {
@@ -241,12 +244,32 @@
 				// console.log('what is the testimony? --> ', testimony.data);
 			})
 			.catch(function (data, config, status) {
-				console.log("sigSrevice error line -- 16 -\&\#1046\;- data : "+data+" config: "+config+" status: "+status+".---");
+				console.log("sigSrevice error line -- 34 -\&\#1046\;- data : "+data+" config: "+config+" status: "+status+".---");
 			})
 			.finally(function () {
-				console.log('This is finally anyway.');
+				console.log('This is finally headers anyway.');
 			});
 		};
+	}]);
+
+	sigM.service('tableContentRequire', ['$http', function($http){
+		// var contentsAisle = "./db/rtdb-table-content.json";
+		var contentsAisle = "https://api.myjson.com/bins/5a2p3";
+
+		this.grabTableContent = function (cbTableContent) {
+			$http.get(contentsAisle)
+			.then(function (testimony) {
+				cbTableContent(testimony.data);
+				console.log('what is the table content? ', testimony.data);
+			})
+			.catch(function (data, config, status) {
+				console.log("sigSrevice error line -- 52 -\&\#1046\;- data : "+data+" config: "+config+" status: "+status+".---");
+			})
+			.finally(function () {
+				console.log('This is finally content anyway.');
+			});
+		};
+
 	}]);
 
 })();
