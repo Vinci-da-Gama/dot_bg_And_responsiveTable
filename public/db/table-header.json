@@ -1,0 +1,13 @@
+{
+	"headerdata": [
+		"appellation",
+		"Company",
+		"Price",
+		"open",
+		"High",
+		"Low",
+		"Percent",
+		"Volume",
+		"change"
+	]
+}

@@ -1,0 +1,39 @@
+<div ui-view>
+	<table>
+		<thead>
+			<tr>
+				<!-- table-title headerdib="{{header}}" -->
+				<!-- <th ng-repeat="header in tableHeaders track by $index">{{header}}</th> -->
+				<th>{{tableHeaders[0]}}</th>
+				<th>{{tableHeaders[1]}}</th>
+				<th>{{tableHeaders[2]}}</th>
+				<th>{{tableHeaders[3]}}</th>
+				<th>{{tableHeaders[4]}}</th>
+				<th>{{tableHeaders[5]}}</th>
+				<th>{{tableHeaders[6]}}</th>
+				<th>{{tableHeaders[7]}}</th>
+				<th>{{tableHeaders[8]}}</th>
+			</tr>
+		</thead>
+		<!-- <tbody>
+			<tr>
+				<td>This is unseen table.</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td>
+					This is tfoot.
+				</td>
+			</tr>
+		</tfoot> -->
+	</table>
+	<div class="list-group page1-listgroup-patch">
+		<div class="list-group-item">
+			<button type="button" class="btn btn-success" ui-sref="p2">Go p2</button>
+		</div>
+		<div class="list-group-item">
+			<button type="button" class="btn btn-primary" ui-sref="p3">Go p3</button>
+		</div>
+	</div>
+</div>

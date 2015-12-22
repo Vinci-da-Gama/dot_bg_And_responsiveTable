@@ -1,0 +1,40 @@
+/* CSS Document */
+@import "./mixins.scss";
+
+$zp:0px;
+$bgAisle:"../_img/testImg.jpeg";
+$bgVertical: top;
+$bgHorizontal: center;
+$bgRepeat: no-repeat;
+$bgSize: cover;
+$bgBlue: rgba(20, 120, 200, .99);
+/* vender prefix */
+$venderList: "-webkit-", "-moz-", "-ms-", "-o-", "";
+
+body.basictorso
+{
+	@include extendFlex($zp);
+	@include fontSmooth();
+	@include bg($bgAisle, $bgVertical, $bgHorizontal, $bgRepeat, $bgSize);
+}
+
+.filtergrid {
+	position: fixed;
+	@include bg("../_img/grid_1.png", top, left, repeat, initial);
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	display: block;
+	z-index: -10;
+	opacity: .7;
+}
+
+div.page1-listgroup-patch {
+	width: 50%;
+	display: inline-flex;
+	> div.list-group-item {
+		border: none;
+		background-color: transparent;
+	}
+}
