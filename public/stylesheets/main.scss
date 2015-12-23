@@ -12,6 +12,16 @@ $bgBlue: rgba(20, 120, 200, .99);
 /* vender prefix */
 $venderList: "-webkit-", "-moz-", "-ms-", "-o-", "";
 
+@font-face {
+	font-family: Funny-Kid_font;
+    src: url('../fonts/FunnyKid.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: CoOl_cheeR-charactor;
+    src: url('../fonts/coolin_cheer.ttf') format('truetype');
+}
+
 body.basictorso
 {
 	@include extendFlex($zp);
@@ -67,8 +77,12 @@ td.table-tdcontent {
     table.unseentable td:nth-child(8) {display: none;}
 }
 
+
 table.flipscroll-table {
 	@include bg('../_img/bgtable2.jpg', $bgVertical, $bgHorizontal, $bgRepeat, $bgSize);
+	font-family: Funny-Kid_font;
+	color: rgba(18, 130, 240, .99);
+	font-size: 1.6em;
 	background-color: rgba(35, 254, 5, .99);
 	/* > thead {
 		display: inline-block;
@@ -109,8 +123,70 @@ table.flipscroll-table {
 }
 
 
+table.full-responsive-table {
+	font-family: CoOl_cheeR-charactor,sans-serif;
+	font-size: 1.4em;
+	color: rgba(180, 176, 234, .99);
+	text-shadow: 1px 2px 3px rgba(18, 130, 240, .99);
+	@include bg('../_img/bgTable3.png', $bgVertical, $bgHorizontal, $bgRepeat, $bgSize);
+	background-color: rgba(236, 224, 10, .99);
+}
 
+th.fr-header {
+	padding: 0 2em;
+}
+td.fr-tdcontent {
+	padding: 0 1em;
+	text-align: center;
+}
 
+/* Portrait */
+@media screen and (max-width: 800px) {
+    /* Force table to not be like tables anymore */
+	div#full-Responsive_tableContainer table,
+	div#full-Responsive_tableContainer thead, 
+	div#full-Responsive_tableContainer tbody, 
+	div#full-Responsive_tableContainer th, 
+	div#full-Responsive_tableContainer td, 
+	div#full-Responsive_tableContainer tr { 
+		display: block;
+	}
+ 
+	/* Hide table headers (but not display: none;, for accessibility) */
+	div#full-Responsive_tableContainer thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+ 
+	div#full-Responsive_tableContainer tr { border: 1px solid #ccc; }
+ 
+	div#full-Responsive_tableContainer td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+		white-space: normal;
+		text-align:left;
+	}
+ 
+	div#full-Responsive_tableContainer td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+		text-align:left;
+		font-weight: bold;
+	}
+ 
+	// use data-title to re-label table content
+	div#full-Responsive_tableContainer td:before { content: attr(data-title); }
+}
 
 
 

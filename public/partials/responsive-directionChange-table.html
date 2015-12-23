@@ -1,21 +1,43 @@
 <div ui-view>
-	<table>
-		<thead>
-			<tr>
-				<th>p3 Header</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>This is direction Changed table.</td>
-			</tr>
-		</tbody>
-		<tfoot>
-			<tr>
-				<td>footer</td>
-			</tr>
-		</tfoot>
-	</table>
+	<div id="full-Responsive_tableContainer">
+		<table class="full-responsive-table table-bordered table-striped table-condensed" align="center">
+			<thead>
+				<tr>
+					<!-- table-title headerdib="{{header}}" -->
+					<!-- <th ng-repeat="header in tableHeaders track by $index">{{header}}</th> -->
+					<th>{{tableHeaders[0]}}</th>
+					<th>{{tableHeaders[1]}}</th>
+					<th class="fr-header">{{tableHeaders[2]}}</th>
+					<th class="fr-header">{{tableHeaders[3]}}</th>
+					<th class="fr-header">{{tableHeaders[4]}}</th>
+					<th class="fr-header">{{tableHeaders[5]}}</th>
+					<th class="fr-header">{{tableHeaders[6]}}</th>
+					<th class="fr-header">{{tableHeaders[7]}}</th>
+					<th class="fr-header">{{tableHeaders[8]}}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="dib in tableContent">
+					<td data-title="appellation">{{dib.appe}}</td>
+					<td data-title="Company">{{dib.com}}</td>
+					<td data-title="Price" 	 class="fr-tdcontent">{{dib.price}}</td>
+					<td data-title="open"  	 class="fr-tdcontent">{{dib.open}}</td>
+					<td data-title="High"  	 class="fr-tdcontent">{{dib.high}}</td>
+					<td data-title="low"   	 class="fr-tdcontent">{{dib.low}}</td>
+					<td data-title="percent" class="fr-tdcontent">{{dib.percent}}</td>
+					<td data-title="volumn"  class="fr-tdcontent">{{dib.vol}}</td>
+					<td data-title="change"  class="fr-tdcontent">{{dib.change}}</td>
+				</tr>
+			</tbody>
+			<!-- <tfoot>
+				<tr>
+					<td>
+						This is tfoot.
+					</td>
+				</tr>
+			</tfoot> -->
+		</table>
+	</div>
 	<button type="button" class="btn btn-danger" ui-sref="p1">Go p1</button>
 	<button type="button" class="btn btn-primary" ui-sref="p2">Go p2</button>
 </div>
