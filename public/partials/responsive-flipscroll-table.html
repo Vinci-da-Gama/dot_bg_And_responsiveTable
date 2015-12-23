@@ -1,21 +1,44 @@
 <div ui-view>
-	<table>
-		<thead>
-			<tr>
-				<th>p2 Header</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>This is flip scroll table.</td>
-			</tr>
-		</tbody>
-		<tfoot>
-			<tr>
-				<td>p2 table foot</td>
-			</tr>
-		</tfoot>
-	</table>
+	<span class="badge">This is Table_2</span>
+	<div id="flipscrollDiv">
+		<table class="flipscroll-table table-bordered table-striped table-condensed" align="center">
+			<thead>
+				<tr>
+					<!-- table-title headerdib="{{header}}" -->
+					<!-- <th ng-repeat="header in tableHeaders track by $index">{{header}}</th> -->
+					<th>{{tableHeaders[0]}}</th>
+					<th>{{tableHeaders[1]}}</th>
+					<th class="table-header">{{tableHeaders[2]}}</th>
+					<th class="table-header">{{tableHeaders[3]}}</th>
+					<th class="table-header">{{tableHeaders[4]}}</th>
+					<th class="table-header">{{tableHeaders[5]}}</th>
+					<th class="table-header">{{tableHeaders[6]}}</th>
+					<th class="table-header">{{tableHeaders[7]}}</th>
+					<th class="table-header">{{tableHeaders[8]}}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="dib in tableContent">
+					<td>{{dib.appe}}</td>
+					<td>{{dib.com}}</td>
+					<td class="table-tdcontent">{{dib.price}}</td>
+					<td class="table-tdcontent">{{dib.open}}</td>
+					<td class="table-tdcontent">{{dib.high}}</td>
+					<td class="table-tdcontent">{{dib.low}}</td>
+					<td class="table-tdcontent">{{dib.percent}}</td>
+					<td class="table-tdcontent">{{dib.vol}}</td>
+					<td class="table-tdcontent">{{dib.change}}</td>
+				</tr>
+			</tbody>
+			<!-- <tfoot>
+				<tr>
+					<td>
+						This is tfoot.
+					</td>
+				</tr>
+			</tfoot> -->
+		</table>
+	</div>
 	<div class="list-group">
 		<a href="#" class="list-group-item active" ui-sref="p1">Go p1</a>
 		<a href="#" class="list-group-item" ui-sref="p3">Go p3</a>

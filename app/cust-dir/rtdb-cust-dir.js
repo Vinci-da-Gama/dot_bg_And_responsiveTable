@@ -34,7 +34,17 @@
 	cdM.directive('responsiveFlipscrollTable', [function(){
 		return {
 			scope: {}, // {} = isolate, true = child, false/undefined = no change
-			controller: function($scope, $element, $attrs, $transclude) {},
+			controller: function($scope, $element, $attrs, $transclude, tableHeaderRequire, tableContentRequire) {
+				tableHeaderRequire.graspTableHeaders(flipScrollHeader);
+				function flipScrollHeader (dossier) {
+					$scope.tableHeaders = dossier.headerdata;
+				};
+
+				tableContentRequire.grabTableContent(fipScrollContent);
+				function fipScrollContent (dossier) {
+					$scope.tableContent = dossier;
+				};
+			},
 			// require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
 			restrict: 'E', // E = Element, A = Attribute, C = Class, M = Comment
 			// template: '',
@@ -51,7 +61,17 @@
 	cdM.directive('responsiveDirectionChangeTable', [function(){
 		return {
 			scope: {}, // {} = isolate, true = child, false/undefined = no change
-			controller: function($scope, $element, $attrs, $transclude) {},
+			controller: function($scope, $element, $attrs, $transclude, tableHeaderRequire, tableContentRequire) {
+				tableHeaderRequire.graspTableHeaders(flipScrollHeader);
+				function flipScrollHeader (dossier) {
+					$scope.tableHeaders = dossier.headerdata;
+				};
+
+				tableContentRequire.grabTableContent(fipScrollContent);
+				function fipScrollContent (dossier) {
+					$scope.tableContent = dossier;
+				};
+			},
 			// require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
 			restrict: 'E', // E = Element, A = Attribute, C = Class, M = Comment
 			// template: '',

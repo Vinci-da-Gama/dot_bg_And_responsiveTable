@@ -7,6 +7,7 @@ $bgVertical: top;
 $bgHorizontal: center;
 $bgRepeat: no-repeat;
 $bgSize: cover;
+$bgSizeVh: auto 100vh;
 $bgBlue: rgba(20, 120, 200, .99);
 /* vender prefix */
 $venderList: "-webkit-", "-moz-", "-ms-", "-o-", "";
@@ -15,7 +16,7 @@ body.basictorso
 {
 	@include extendFlex($zp);
 	@include fontSmooth();
-	@include bg($bgAisle, $bgVertical, $bgHorizontal, $bgRepeat, $bgSize);
+	@include bg($bgAisle, $bgVertical, $bgHorizontal, $bgRepeat, $bgSizeVh);
 }
 
 .filtergrid {
@@ -40,17 +41,116 @@ div.page1-listgroup-patch {
 }
 
 table.unseentable {
-	th.table-header {
-		padding: 0 1em;
-	}
-	.table-tdcontent {
-		padding: 0 1em;
-		text-align: center;
+	background-color: rgba(18, 130, 240, .99);
+}
+
+th.table-header {
+	padding: 0 1em;
+}
+td.table-tdcontent {
+	padding: 0 1em;
+	text-align: center;
+}
+
+/* unseen table */
+@media screen and (max-width: 800px) {
+    table.unseentable th:nth-child(2), 
+    table.unseentable td:nth-child(2) {display: none;}
+}
+
+@media screen and (max-width: 650px) {
+    table.unseentable th:nth-child(4), 
+    table.unseentable td:nth-child(4),
+    table.unseentable th:nth-child(6),
+    table.unseentable td:nth-child(6),
+    table.unseentable th:nth-child(8),
+    table.unseentable td:nth-child(8) {display: none;}
+}
+
+table.flipscroll-table {
+	@include bg('../_img/bgtable2.jpg', $bgVertical, $bgHorizontal, $bgRepeat, $bgSize);
+	background-color: rgba(35, 254, 5, .99);
+	/* > thead {
+		display: inline-block;
+	} */
+	> tbody {
+		white-space: nowrap;
 	}
 }
 
-/* Portrait */
+/* flip_scroll_table */
 @media screen and (max-width: 800px) {
-    #unseen table.unseentable th:nth-child(2), 
-    #unseen table.unseentable td:nth-child(2) {display: none;}
+    
+    /* div#flipscrollDiv .cf:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+	div#flipscrollDiv * html .cf { zoom: 1; }
+	div#flipscrollDiv *:first-child+html .cf { zoom: 1; } */
+	
+	div#flipscrollDiv table { width: 100%; border-collapse: collapse; border-spacing: 0; }
+ 
+	div#flipscrollDiv th,
+	div#flipscrollDiv td { margin: 0; vertical-align: top; }
+	div#flipscrollDiv th { text-align: left; }
+	
+	div#flipscrollDiv table { display: block; position: relative; width: 100%; }
+	div#flipscrollDiv thead { display: block; float: left; }
+	div#flipscrollDiv tbody { display: block; width: auto; position: relative; overflow-x: auto; white-space: nowrap; }
+	div#flipscrollDiv thead tr { display: block; }
+	div#flipscrollDiv th { display: block; text-align: right; }
+	div#flipscrollDiv tbody tr { display: inline-block; vertical-align: top; }
+	div#flipscrollDiv td { display: block; min-height: 1.25em; text-align: left; }
+ 
+	/* sort out borders */
+ 
+	div#flipscrollDiv th { border-bottom: 0; border-left: 0; }
+	div#flipscrollDiv td { border-left: 0; border-right: 0; border-bottom: 0; }
+	div#flipscrollDiv tbody tr { border-left: 1px solid #babcbf; }
+	div#flipscrollDiv th:last-child,
+	div#flipscrollDiv td:last-child { border-bottom: 1px solid #babcbf; }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

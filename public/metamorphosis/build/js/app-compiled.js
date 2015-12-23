@@ -51,6 +51,26 @@
 
 })();
 (function () {
+	var ctrlM = angular.module('rtdb.ctrl');
+
+	ctrlM.controller('p1Ctrl', ['$scope', function($scope){
+		console.log('This is p1Ctrl');
+	}]);
+
+	ctrlM.controller('p2Ctrl', ['$scope', function($scope){
+		console.log('This is p2Ctrl');
+	}]);
+
+	ctrlM.controller('p3Ctrl', ['$scope', function($scope){
+		console.log('This is p3Ctrl');
+	}]);
+
+})();
+(function () {
+	var cosM = angular.module('rtdb.constant');
+
+})();
+(function () {
 	var cdM = angular.module('rtdb.cust.dir');
 
 	cdM.directive('responsiveTableUnseen', [function(){
@@ -86,7 +106,17 @@
 	cdM.directive('responsiveFlipscrollTable', [function(){
 		return {
 			scope: {}, // {} = isolate, true = child, false/undefined = no change
-			controller: function($scope, $element, $attrs, $transclude) {},
+			controller: function($scope, $element, $attrs, $transclude, tableHeaderRequire, tableContentRequire) {
+				tableHeaderRequire.graspTableHeaders(flipScrollHeader);
+				function flipScrollHeader (dossier) {
+					$scope.tableHeaders = dossier.headerdata;
+				};
+
+				tableContentRequire.grabTableContent(fipScrollContent);
+				function fipScrollContent (dossier) {
+					$scope.tableContent = dossier;
+				};
+			},
 			// require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
 			restrict: 'E', // E = Element, A = Attribute, C = Class, M = Comment
 			// template: '',
@@ -103,7 +133,17 @@
 	cdM.directive('responsiveDirectionChangeTable', [function(){
 		return {
 			scope: {}, // {} = isolate, true = child, false/undefined = no change
-			controller: function($scope, $element, $attrs, $transclude) {},
+			controller: function($scope, $element, $attrs, $transclude, tableHeaderRequire, tableContentRequire) {
+				tableHeaderRequire.graspTableHeaders(flipScrollHeader);
+				function flipScrollHeader (dossier) {
+					$scope.tableHeaders = dossier.headerdata;
+				};
+
+				tableContentRequire.grabTableContent(fipScrollContent);
+				function fipScrollContent (dossier) {
+					$scope.tableContent = dossier;
+				};
+			},
 			// require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
 			restrict: 'E', // E = Element, A = Attribute, C = Class, M = Comment
 			// template: '',
@@ -117,26 +157,6 @@
 		};
 	}]);
 
-
-})();
-(function () {
-	var ctrlM = angular.module('rtdb.ctrl');
-
-	ctrlM.controller('p1Ctrl', ['$scope', function($scope){
-		console.log('This is p1Ctrl');
-	}]);
-
-	ctrlM.controller('p2Ctrl', ['$scope', function($scope){
-		console.log('This is p2Ctrl');
-	}]);
-
-	ctrlM.controller('p3Ctrl', ['$scope', function($scope){
-		console.log('This is p3Ctrl');
-	}]);
-
-})();
-(function () {
-	var cosM = angular.module('rtdb.constant');
 
 })();
 (function () {
